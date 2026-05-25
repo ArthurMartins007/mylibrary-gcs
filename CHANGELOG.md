@@ -1,6 +1,10 @@
 \# Changelog
 
+\## \[1.0.1] - 2026-05-25
 
+\### Fixed
+
+\- Hotfix: Correção de erro crítico em produção.
 
 \## \[1.0.0] - 2026-05-25
 
