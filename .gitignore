@@ -1,0 +1,17 @@
+# IDEs e Editores
+.idea/
+.vscode/
+*.swp
+*.eclipse
+
+# Backend (Java / Spring Boot)
+backend/target/
+*.class
+*.jar
+*.war
+*.log
+
+# Frontend (Angular / Node)
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
