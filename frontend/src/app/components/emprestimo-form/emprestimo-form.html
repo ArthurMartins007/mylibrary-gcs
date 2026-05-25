@@ -1,0 +1,28 @@
+<div class="container" style="max-width: 600px; margin: 0 auto; padding-top: 20px;">
+  <h2>Registrar Empréstimo</h2>
+
+  <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+    <div>
+      <label style="font-weight: bold;">Livro:</label><br>
+      <select [(ngModel)]="emprestimo.livro.id" style="width: 100%; padding: 8px; margin-top: 5px;">
+        <option [ngValue]="null">Selecione um livro disponível...</option>
+        <option *ngFor="let livro of livrosDisponiveis" [value]="livro.id">{{ livro.titulo }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label style="font-weight: bold;">Nome do Usuário:</label><br>
+      <input type="text" [(ngModel)]="emprestimo.nomeUsuario" placeholder="Ex: Arthur Martins"
+             style="width: 100%; padding: 8px; margin-top: 5px;">
+    </div>
+
+    <div style="display: flex; gap: 10px; margin-top: 20px;">
+      <button (click)="salvar()" style="padding: 10px 20px; background-color: #ffc107; color: black; border: none; border-radius: 4px; cursor: pointer;">
+        Confirmar Empréstimo
+      </button>
+      <button routerLink="/livros" style="padding: 10px 20px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
