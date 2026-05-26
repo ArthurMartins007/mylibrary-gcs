@@ -1,0 +1,243 @@
+/* --- Seção Hero --- */
+.hero-section {
+  padding: 64px 0 40px 0;
+}
+
+.badge {
+  display: inline-block;
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.accent-text {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: var(--foreground);
+  opacity: 0.8;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+/* --- Barra de Pesquisa --- */
+.search-section {
+  padding: 24px 0;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--foreground);
+  opacity: 0.5;
+}
+
+.input-search {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-search:focus {
+  border-color: var(--accent);
+}
+
+.filters-group {
+  display: flex;
+  gap: 12px;
+}
+
+.select-filter {
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--foreground);
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+/* --- Grid de Livros --- */
+.books-section {
+  padding-bottom: 48px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+}
+
+.muted-text {
+  font-size: 0.875rem;
+  opacity: 0.7;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* --- O Cartão (Card) do Livro --- */
+.book-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+  box-shadow: var(--shadow-book);
+}
+
+.book-cover {
+  height: 180px;
+  /* Um degradê cor de madeira bem charmoso */
+  background: linear-gradient(160deg, oklch(0.45 0.12 35), oklch(0.25 0.05 40));
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  color: var(--primary-foreground);
+}
+
+.book-icon {
+  opacity: 0.7;
+}
+
+.book-info {
+  padding: 16px;
+}
+
+.book-title {
+  font-family: 'Lora', serif; /* Mantivemos a fonte de texto para legibilidade */
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-author {
+  font-size: 0.875rem;
+  color: var(--foreground);
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+.book-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.status-badge {
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: oklch(0.68 0.13 50 / 0.15); /* Cor de destaque com transparência */
+  color: var(--accent);
+}
+
+.status-badge.emprestado {
+  background-color: oklch(0.88 0.03 70);
+  color: var(--foreground);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.btn-devolver {
+  color: #0056b3;
+}
+
+.btn-excluir {
+  color: #dc3545;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  background-color: var(--card);
+  border-radius: var(--radius);
+  border: 1px dashed var(--border);
+  opacity: 0.7;
+}
+.hero-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.btn-hero-primary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-hero-primary:hover {
+  background-color: var(--border);
+  transform: translateY(-2px);
+}

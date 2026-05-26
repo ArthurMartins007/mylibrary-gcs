@@ -1,62 +1,72 @@
-<div class="container">
-  <h2>Catálogo de Livros</h2>
+<div class="container-acervo">
 
-  <div class="filtros" style="margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 5px;">
-    <h4>Filtrar Livros</h4>
+  <section class="hero-section">
+    <div class="hero-text">
+      <span class="badge">Sua biblioteca, do seu jeito</span>
+      <h1 class="hero-title">Cada livro <em class="accent-text">no seu</em> lugar.</h1>
+      <p class="hero-subtitle">
+        Organize seu acervo, agrupe por categorias e acompanhe empréstimos sem complicação — como numa estante de verdade.
+      </p>
+      <div class="hero-actions">
+        <button routerLink="/emprestimos/novo" class="btn-hero-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Registrar Empréstimo
+        </button>
+      </div>
+    </div>
+  </section>
 
-    <input type="text" placeholder="Buscar por título ou autor..."
-           [(ngModel)]="termoBusca" (input)="filtrar()" style="margin-right: 10px;">
+  <section class="search-section">
+    <div class="search-box">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" placeholder="Buscar por título ou autor..." [(ngModel)]="termoBusca" (input)="filtrar()" class="input-search">
+    </div>
 
-    <select [(ngModel)]="categoriaSelecionada" (change)="filtrar()" style="margin-right: 10px;">
-      <option value="">Todas as Categorias</option>
-      <option *ngFor="let cat of categorias" [value]="cat.id">{{ cat.nome }}</option>
-    </select>
+    <div class="filters-group">
+      <select [(ngModel)]="categoriaSelecionada" (change)="filtrar()" class="select-filter">
+        <option value="">Todas as Categorias</option>
+        <option *ngFor="let cat of categorias" [value]="cat.id">{{ cat.nome }}</option>
+      </select>
+      <select [(ngModel)]="statusSelecionado" (change)="filtrar()" class="select-filter">
+        <option value="">Todos os Status</option>
+        <option value="DISPONIVEL">Disponível</option>
+        <option value="EMPRESTADO">Emprestado</option>
+      </select>
+    </div>
+  </section>
 
-    <select [(ngModel)]="statusSelecionado" (change)="filtrar()">
-      <option value="">Todos os Status</option>
-      <option value="DISPONIVEL">Disponível</option>
-      <option value="EMPRESTADO">Emprestado</option>
-    </select>
-  </div>
+  <section class="books-section">
+    <div class="section-header">
+      <h2>Em destaque</h2>
+      <span class="muted-text">{{ livrosFiltrados.length }} livros no acervo</span>
+    </div>
 
-  <button routerLink="/livros/novo" style="margin-bottom: 15px; padding: 10px; background-color: #0056b3; color: white; border: none; border-radius: 4px; cursor: pointer;">
-    + Novo Livro
-  </button>
+    <div class="books-grid">
+      <div class="book-card" *ngFor="let livro of livrosFiltrados">
+        <div class="book-cover">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="book-icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        </div>
 
-  <button routerLink="/emprestimos/novo" style="margin-bottom: 15px; margin-left: 10px; padding: 10px; background-color: #ffc107; color: black; border: none; border-radius: 4px; cursor: pointer;">
-    Registrar Empréstimo
-  </button>
-  <button routerLink="/categorias" style="margin-bottom: 15px; margin-left: 10px; padding: 10px; background-color: #17a2b8; color: white; border: none; border-radius: 4px; cursor: pointer;">
-    Gerenciar Categorias
-  </button>
+        <div class="book-info">
+          <h3 class="book-title">{{ livro.titulo }}</h3>
+          <p class="book-author">{{ livro.autor }}</p>
 
-  <table border="1" width="100%" style="border-collapse: collapse; text-align: left;">
-    <thead>
-    <tr style="background-color: #f2f2f2;">
-      <th>ID</th>
-      <th>Título</th>
-      <th>Autor</th>
-      <th>Categoria</th>
-      <th>Status</th>
-      <th>Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let livro of livrosFiltrados">
-      <td>{{ livro.id }}</td>
-      <td>{{ livro.titulo }}</td>
-      <td>{{ livro.autor }}</td>
-      <td>{{ livro.categoria?.nome }}</td>
-      <td>{{ livro.status }}</td>
-      <td>
-      <td>
-        <button *ngIf="livro.status === 'EMPRESTADO'" (click)="devolver(livro)" style="color: blue; margin-right: 10px;">Devolver</button>
-        <button (click)="excluir(livro)" style="color: red;">Excluir</button>
-      </td>
-    </tr>
-    <tr *ngIf="livrosFiltrados.length === 0">
-      <td colspan="6" style="text-align: center;">Nenhum livro encontrado.</td>
-    </tr>
-    </tbody>
-  </table>
+          <div class="book-actions">
+            <span class="status-badge" [class.emprestado]="livro.status === 'EMPRESTADO'">
+              {{ livro.status }}
+            </span>
+            <div class="action-buttons">
+              <button *ngIf="livro.status === 'EMPRESTADO'" (click)="devolver(livro)" class="btn-icon btn-devolver" title="Devolver">Devolver</button>
+              <button (click)="excluir(livro)" class="btn-icon btn-excluir" title="Excluir">Excluir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="livrosFiltrados.length === 0" class="empty-state">
+        Nenhum livro encontrado com estes filtros.
+      </div>
+    </div>
+  </section>
+
 </div>

@@ -1,1 +1,23 @@
-<router-outlet></router-outlet>
+<header class="navbar">
+  <div class="container-acervo nav-content">
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+      </svg>
+      <span>Bibliô</span>
+    </div>
+
+    <nav class="nav-links">
+      <a routerLink="/livros">Livros</a>
+      <a routerLink="/categorias">Categorias</a>
+    </nav>
+
+    <button routerLink="/livros/novo" class="btn-novo-livro">
+      + Novo livro
+    </button>
+  </div>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>

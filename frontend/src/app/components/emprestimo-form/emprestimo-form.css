@@ -1,0 +1,107 @@
+.form-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.form-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: hidden; /* Mantém as bordas arredondadas mesmo com o cabeçalho escuro */
+}
+
+.form-header {
+  background: linear-gradient(160deg, oklch(0.45 0.12 35), oklch(0.25 0.05 40));
+  padding: 24px;
+  color: var(--primary-foreground);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-header h2 {
+  color: var(--primary-foreground);
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.form-content {
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--foreground);
+}
+
+.input-modern {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-modern:focus {
+  border-color: var(--accent);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.btn-action {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.2s;
+}
+
+.btn-action:hover {
+  background-color: var(--border);
+}
+
+.btn-cancel {
+  background-color: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  flex: 1;
+  transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: oklch(0 0 0 / 0.05);
+}
